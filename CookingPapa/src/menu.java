@@ -92,7 +92,7 @@ class menu extends JPanel{
 		add(button3);
 	}
 	
-	void btn_setting(JButton btn) {
+	static void btn_setting(JButton btn) {
 		btn.setBorderPainted(false);
 		btn.setContentAreaFilled(false);
 		btn.setFocusPainted(false);

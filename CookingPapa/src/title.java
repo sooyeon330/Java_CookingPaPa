@@ -102,7 +102,7 @@ class TitlePanel extends JPanel{
 			}
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				frame.add(new twoExam(frame));
+				frame.add(new twomenu(frame));
 				frame.remove(panel);
 				frame.repaint();
 				frame.revalidate();

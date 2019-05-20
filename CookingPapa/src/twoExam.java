@@ -13,7 +13,7 @@ public class twoExam extends JPanel{
 	ImageIcon enter = new ImageIcon("pic/go_btn_pressed.png");
 	JPanel panel;
 	
-	twoExam(JFrame frame){
+	twoExam(JFrame frame, JPanel nextP){
 		setLayout(null);
 		
 		panel = this;
@@ -34,7 +34,7 @@ public class twoExam extends JPanel{
 			}
 			
 			public void mouseClicked(MouseEvent e) {
-				frame.add(new twoPeople(frame));
+				frame.add(nextP);
 				frame.remove(panel);
 				frame.repaint();
 				frame.revalidate();

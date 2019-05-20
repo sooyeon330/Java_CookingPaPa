@@ -14,8 +14,6 @@ class menu extends JPanel{
 	ImageIcon ramenimg = new ImageIcon("pic/Ramen.png");
 	ImageIcon eggrollimg = new ImageIcon("pic/EggRoll.png");
 	ImageIcon chikenimg = new ImageIcon("pic/Chiken.png");
-	ImageIcon two = new ImageIcon("pic/2pGame_btn.png");
-	ImageIcon two_press = new ImageIcon("pic/2pGame_btn_press.png");
 	ImageIcon tutorial = new ImageIcon("pic/tutorial_btn.png");
 	ImageIcon tutorial_press = new ImageIcon("pic/tutorial_btn_press.png");
 	
@@ -68,31 +66,9 @@ class menu extends JPanel{
 			}
 		});
 		
-		JButton button2 = new JButton(two);
+		
 		JButton button3 = new JButton(tutorial);
 
-		btn_setting(button2);
-		button2.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				button2.setIcon(two_press);
-			}
-			
-			@Override
-			public void mouseExited(MouseEvent e) {
-				button2.setIcon(two);
-			}
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				frame.add(new twoExam(frame));
-				frame.remove(panel);
-				frame.repaint();
-				frame.revalidate();
-			}
-		});
-		button2.setBounds(350,600,300,80);		
-		add(button2);
-		
 		btn_setting(button3);
 		button3.addMouseListener(new MouseAdapter() {
 			@Override

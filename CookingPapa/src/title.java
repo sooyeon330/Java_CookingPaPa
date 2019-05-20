@@ -20,6 +20,8 @@ class TitlePanel extends JPanel{
 	ImageIcon start_press = new ImageIcon("pic/start_btn_press.png");
 	ImageIcon rank = new ImageIcon("pic/ranking_btn.png");
 	ImageIcon rank_press = new ImageIcon("pic/ranking_btn_pressed.png");
+	ImageIcon two = new ImageIcon("pic/2pGame_btn.png");
+	ImageIcon two_press = new ImageIcon("pic/2pGame_btn_press.png");
 	
 	JPanel panel;
 	
@@ -81,8 +83,35 @@ class TitlePanel extends JPanel{
 		});
 		button2.setBounds(650,600,350,90);		
 		add(button2);
-		}
+		
+		JButton button3 = new JButton(two);
 	
+		button3.setBorderPainted(false);
+		button3.setContentAreaFilled(false);
+		button3.setFocusPainted(false);
+		
+		button3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				button3.setIcon(two_press);
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				button3.setIcon(two);
+			}
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				frame.add(new twoExam(frame));
+				frame.remove(panel);
+				frame.repaint();
+				frame.revalidate();
+			}
+		});
+		button3.setBounds(350,600,300,80);		
+		add(button3);
+	}
+		
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);

@@ -17,6 +17,11 @@ public class two_buger extends JPanel{
 							new ImageIcon("pic/key3.png"), //right
 							new ImageIcon("pic/key2.png")}; //down
 	
+	ImageIcon presskeyimg[] = { new ImageIcon("pic/presskey1.png"), // left
+							new ImageIcon("pic/presskey2.png"), // up
+							new ImageIcon("pic/presskey3.png"), //right
+							new ImageIcon("pic/presskey4.png")}; //down
+	
 	int x = 100; //방향키 기본 x좌표
 	public static final int y = 100; //방향키 기본 y좌표
 	public static final int w = 70; //방향키 기본  width
@@ -32,12 +37,18 @@ public class two_buger extends JPanel{
 		setLayout(null);
 		
 		int rand = (int) (Math.random()*4);
-		int keyarray[][] = new int[4][4];
+		int keyarray[][] = new int[4][4];//0 : rand, 1 : keyCode()
 		
-		JLabel keylb[] = {new JLabel(ImageResize(w, h, keyimg[0])), //left
-							new JLabel(ImageResize(w, h, keyimg[1])), //up
-							new JLabel(ImageResize(w, h, keyimg[2])),//right
-							new JLabel(ImageResize(w, h, keyimg[3]))}; //up
+		for(int i=0; i<4; i++) {
+			keyimg[i] = ImageResize(w, h, keyimg[i]);
+			presskeyimg[i] = ImageResize(w, h, presskeyimg[i]);
+		}
+		
+		JLabel keylb[] = {new JLabel(keyimg[0]), //left
+							new JLabel(keyimg[1]), //up
+							new JLabel(keyimg[2]),//right
+							new JLabel(keyimg[3])}; //up
+
 		
 		paintKey(keylb, keyarray, rand);
 		
@@ -55,9 +66,12 @@ public class two_buger extends JPanel{
 				
 				frame.requestFocusInWindow();
 				frame.addKeyListener(new KeyAdapter() {
+					
 					@Override
 					public void keyPressed(KeyEvent e) {
-						System.out.println("keypress");
+//						System.out.println("keypress");
+						keylb[keyarray[0][k]].setIcon(presskeyimg[keyarray[0][k]]);
+						
 						if(e.getKeyCode() == keyarray[1][k++]) {
 							System.out.println("맞음");
 							if(k > 3) {
@@ -72,7 +86,15 @@ public class two_buger extends JPanel{
 							removeKey(keylb, keyarray);
 							paintKey(keylb, keyarray, rand);
 						}
+						
+					
 					}
+					@Override
+					public void keyReleased(KeyEvent e) {
+						keylb[keyarray[0][k]].setIcon(keyimg[keyarray[0][k]]);
+						frame.repaint();
+					}
+	
 				});
 			}
 		});
@@ -113,11 +135,11 @@ public class two_buger extends JPanel{
 		}
 		return 0;
 	}
-	protected ImageIcon ImageResize(int width, int height,ImageIcon img) {
+	protected ImageIcon ImageResize( int width, int height,ImageIcon img) {
 		Image before = img.getImage();
 		Image after = before.getScaledInstance(width, height, Image.SCALE_SMOOTH);
-		ImageIcon afterIcon = new ImageIcon(after);
-		return afterIcon;
+		return img = new ImageIcon(after);
+
 	}
 	@Override
 	protected void paintComponent(Graphics g) {

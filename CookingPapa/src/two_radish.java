@@ -28,8 +28,8 @@ public class two_radish extends JPanel{
 		JLabel one_count = new JLabel(count1 + "개");
 		JLabel two_count = new JLabel(count2 + "개");
 		
-		radish1.setBounds(-50, -100, radish[0].getIconWidth() + 100, radish[0].getIconHeight() + 30);
-		radish2.setBounds(-50, 280, radish[0].getIconWidth() + 100, radish[0].getIconHeight() + 30);
+		radish1.setBounds(-50, 0, radish[0].getIconWidth() + 100, radish[0].getIconHeight() + 30);
+		radish2.setBounds(-50, 400, radish[0].getIconWidth() + 100, radish[0].getIconHeight() + 30);
 		one_count.setBounds(980, 2, 100, 100);
 		two_count.setBounds(980, 350, 100, 100);
 		

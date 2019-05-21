@@ -133,7 +133,7 @@ public class title {
 				frame.setTitle("Cooking PaPa 쿠킹파파"); 
 				frame.setLocation(0,0);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setResizable(true);
+				frame.setResizable(false);
 				TitlePanel title = new TitlePanel(frame);		
 				title.setPreferredSize(new Dimension(1024, 720));
 				title.setLayout(null);

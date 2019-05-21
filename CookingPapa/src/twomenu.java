@@ -22,11 +22,15 @@ class twomenu extends JPanel{
 		
 		JButton btn_carrot = new JButton(ramenimg);
 		JButton btn_radish = new JButton(ramenimg);
-//		JButton btn_carrot = new JButton(ramenimg);
-		btn_setting(btn_carrot);btn_setting(btn_radish);
+		JButton btn_buger = new JButton(ramenimg);
+		
+		btn_setting(btn_carrot);btn_setting(btn_radish);btn_setting(btn_buger);
+		
 		btn_carrot.setBounds(80,250,ramenimg.getIconWidth(),ramenimg.getIconHeight());
 		btn_radish.setBounds(420,270,ramenimg.getIconWidth(),ramenimg.getIconHeight());
-		add(btn_carrot);add(btn_radish);
+		btn_buger.setBounds(700,250,ramenimg.getIconWidth(),ramenimg.getIconHeight());
+		
+		add(btn_carrot);add(btn_radish);add(btn_buger);
 		
 		btn_carrot.addMouseListener(new  MouseAdapter() {
 			@Override
@@ -44,6 +48,17 @@ class twomenu extends JPanel{
 			public void mouseClicked(MouseEvent e) {
 				setVisible(false);
 				frame.add(new twoExam(frame,new two_radish(frame)));
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btn_carrot.setCursor(new Cursor(Cursor.HAND_CURSOR));
+			}
+		});
+		btn_buger.addMouseListener(new  MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				setVisible(false);
+				frame.add(new twoExam(frame,new two_buger(frame)));
 			}
 			@Override
 			public void mouseEntered(MouseEvent e) {

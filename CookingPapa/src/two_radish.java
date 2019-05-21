@@ -10,8 +10,8 @@ import javax.swing.JPanel;
 
 public class two_radish extends JPanel{
 	ImageIcon bgimage = new ImageIcon("pic/cuttingboard2.png");
-	ImageIcon[] carrot = {new ImageIcon("pic/carret1.png"),new ImageIcon("pic/carret2.png"),
-			new ImageIcon("pic/carret3.png"),new ImageIcon("pic/carret4.png")};
+	ImageIcon[] radish = {new ImageIcon("pic/radish1.png"),new ImageIcon("pic/radish2.png"),
+			new ImageIcon("pic/radish3.png"),new ImageIcon("pic/radish4.png")};
 	int i = 0, j = 0;
 	static int count1 = 0;
 	static int count2 = 0;
@@ -22,18 +22,18 @@ public class two_radish extends JPanel{
 		Time_Limit t= new Time_Limit(16, this, frame, 1);
 		t.start();
 		
-		JLabel carrot1 = new JLabel(carrot[i]);
-		JLabel carrot2 = new JLabel(carrot[j]);
+		JLabel radish1 = new JLabel(radish[i]);
+		JLabel radish2 = new JLabel(radish[j]);
 		
 		JLabel one_count = new JLabel(count1 + "개");
 		JLabel two_count = new JLabel(count2 + "개");
 		
-		carrot1.setBounds(-50, -100, carrot[0].getIconWidth() + 100, carrot[0].getIconHeight() + 30);
-		carrot2.setBounds(-50, 280, carrot[0].getIconWidth() + 100, carrot[0].getIconHeight() + 30);
+		radish1.setBounds(-50, -100, radish[0].getIconWidth() + 100, radish[0].getIconHeight() + 30);
+		radish2.setBounds(-50, 280, radish[0].getIconWidth() + 100, radish[0].getIconHeight() + 30);
 		one_count.setBounds(980, 2, 100, 100);
 		two_count.setBounds(980, 350, 100, 100);
 		
-		add(carrot1);add(carrot2);add(one_count);add(two_count);
+		add(radish1);add(radish2);add(one_count);add(two_count);
 		
 		frame.requestFocusInWindow();
 		frame.addKeyListener(new KeyListener() {
@@ -52,7 +52,7 @@ public class two_radish extends JPanel{
 						i = 0;count1++;
 						one_count.setText(count1 + "개");
 					}
-					carrot1.setIcon(carrot[i]);
+					radish1.setIcon(radish[i]);
 				}
 				if(e.getKeyCode() == KeyEvent.VK_DOWN) {
 					j++;
@@ -60,7 +60,7 @@ public class two_radish extends JPanel{
 						j = 0;count2++;
 						two_count.setText(count2 + "개");
 					}
-					carrot2.setIcon(carrot[j]);
+					radish2.setIcon(radish[j]);
 				}
 			}
 			

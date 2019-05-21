@@ -48,7 +48,37 @@ public class two_buger extends JPanel{
 		
 //		add(keylb[0]);add(keylb[1]);add(keylb[2]);add(keylb[3]);
 		
-	
+		Thread p1 = new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				
+				frame.requestFocusInWindow();
+				frame.addKeyListener(new KeyAdapter() {
+					@Override
+					public void keyPressed(KeyEvent e) {
+						System.out.println("keypress");
+						if(e.getKeyCode() == keyarray[1][k++]) {
+							System.out.println("맞음");
+							if(k > 3) {
+								k=0;removeKey(keylb, keyarray);
+								paintKey(keylb, keyarray, rand);
+							}
+							
+
+						}else {
+							System.out.println("틀림");
+							k=0;
+							removeKey(keylb, keyarray);
+							paintKey(keylb, keyarray, rand);
+						}
+					}
+				});
+			}
+		});
+		
+		p1.start();
+		
 		
 
 		

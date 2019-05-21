@@ -20,18 +20,18 @@ public class twoResult extends JPanel{
 		add(result);
 		add(new back(frame,this));
 		
-		if(twoPeople.count1 > twoPeople.count2) {
+		if(two_carrot.count1 > two_carrot.count2) {
 			result.setText("P1");
 		}
-		else if(twoPeople.count1 == twoPeople.count2){
+		else if(two_carrot.count1 == two_carrot.count2){
 			result.setText("X");
 		}
 		else {
 			result.setText("P2");
 		}
 		
-		twoPeople.count1 = 0;
-		twoPeople.count2 = 0;
+		two_carrot.count1 = 0;
+		two_carrot.count2 = 0;
 	}
 	@Override
 	protected void paintComponent(Graphics g) {

@@ -66,7 +66,7 @@ class stage_chicken1 extends JPanel{
 			public void mouseReleased(MouseEvent e) {
 				endX = e.getX();
 				endY = e.getY();
-				System.out.println(e.getX());
+//				System.out.println(e.getX());
 				if(pause.work) {
 					if(endY - startY >= 350 && endX - startX <= 50 && startX >= 280 && endX <= 800) {
 						i++;

@@ -47,7 +47,7 @@ public class Time_Limit extends Thread{
 		while(!stopFlag) {
 			if(i <= 5) label.setForeground(Color.RED);
 			label.setText(Integer.toString(i) + "초");
-			System.out.println(i);
+		//	System.out.println(i);
 			myPanel.add(label);
 			try {
 				Thread.sleep(500);

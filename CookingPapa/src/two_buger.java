@@ -66,7 +66,7 @@ public class two_buger extends JPanel{
 					@Override
 					public void keyPressed(KeyEvent e) {
 //						System.out.println("keypress");
-//						keylb[k].setIcon(presskeyimg[keyarray[0][k]]);
+						keylb[k].setIcon(presskeyimg[keyarray[0][k]]);
 						
 						if(e.getKeyCode() == keyarray[1][k++]) {
 							System.out.println("맞음");
@@ -88,10 +88,10 @@ public class two_buger extends JPanel{
 					}
 					@Override
 					public void keyReleased(KeyEvent e) {
-//						keylb[k].setIcon(keyimg[keyarray[0][k]]);
-//						keylb[k].setIcon(keyimg[keyarray[0][k]]);
-//						keylb[k].setIcon(keyimg[keyarray[0][k]]);
-//						keylb[k].setIcon(keyimg[keyarray[0][k]]);
+						keylb[k].setIcon(keyimg[keyarray[0][k]]);
+						keylb[k].setIcon(keyimg[keyarray[0][k]]);
+						keylb[k].setIcon(keyimg[keyarray[0][k]]);
+						keylb[k].setIcon(keyimg[keyarray[0][k]]);
 						frame.repaint();
 					}
 	

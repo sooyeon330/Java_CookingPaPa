@@ -13,9 +13,9 @@ import javax.swing.JPanel;
 public class two_buger extends JPanel{	
 	ImageIcon bgimage = new ImageIcon("pic/cuttingboard2.png");
 	ImageIcon keyimg[] = { new ImageIcon("pic/key1.png"), // left
-							new ImageIcon("pic/key4.png"), // up
+							new ImageIcon("pic/key2.png"), // up
 							new ImageIcon("pic/key3.png"), //right
-							new ImageIcon("pic/key2.png")}; //down
+							new ImageIcon("pic/key4.png")}; //down
 	
 	ImageIcon presskeyimg[] = { new ImageIcon("pic/presskey1.png"), // left
 							new ImageIcon("pic/presskey2.png"), // up
@@ -44,11 +44,7 @@ public class two_buger extends JPanel{
 			presskeyimg[i] = ImageResize(w, h, presskeyimg[i]);
 		}
 		
-		JLabel keylb[] = {new JLabel(keyimg[0]), //left
-							new JLabel(keyimg[1]), //up
-							new JLabel(keyimg[2]),//right
-							new JLabel(keyimg[3])}; //up
-
+		JLabel keylb[]= {null,null,null,null}; //up
 		
 		paintKey(keylb, keyarray, rand);
 		
@@ -70,12 +66,13 @@ public class two_buger extends JPanel{
 					@Override
 					public void keyPressed(KeyEvent e) {
 //						System.out.println("keypress");
-						keylb[keyarray[0][k]].setIcon(presskeyimg[keyarray[0][k]]);
+//						keylb[k].setIcon(presskeyimg[keyarray[0][k]]);
 						
 						if(e.getKeyCode() == keyarray[1][k++]) {
 							System.out.println("맞음");
 							if(k > 3) {
-								k=0;removeKey(keylb, keyarray);
+								k=0;
+								removeKey(keylb, keyarray);
 								paintKey(keylb, keyarray, rand);
 							}
 							
@@ -91,7 +88,10 @@ public class two_buger extends JPanel{
 					}
 					@Override
 					public void keyReleased(KeyEvent e) {
-						keylb[keyarray[0][k]].setIcon(keyimg[keyarray[0][k]]);
+//						keylb[k].setIcon(keyimg[keyarray[0][k]]);
+//						keylb[k].setIcon(keyimg[keyarray[0][k]]);
+//						keylb[k].setIcon(keyimg[keyarray[0][k]]);
+//						keylb[k].setIcon(keyimg[keyarray[0][k]]);
 						frame.repaint();
 					}
 	
@@ -107,26 +107,30 @@ public class two_buger extends JPanel{
 		
 		
 	}
-	protected void paintKey(JLabel[] keylb,int[][] array,int rand) {
-		for(int i=0; i<4; i++) { //랜덤으로 방향키 출력			
-			keylb[rand].setBounds(x*(i+1), y, 100, 100);
-			add(keylb[rand]); this.repaint();
+	protected void paintKey(JLabel[] keylb,int[][] array,int rand) { //새로운 키 배열 출력
+		System.out.println("painkey");
+		for(int i=0; i<4; i++) { //랜덤으로 방향키 출력	
+			rand = (int) (Math.random()*4);
+			keylb[i]= new JLabel(keyimg[rand]);
+			keylb[i].setBounds(x*(i+1), y, 100, 100);
+			
+			add(keylb[i]); this.repaint();
 			array[0][i] = rand;
 			array[1][i] = keyCode(rand);
 			System.out.println("add"+rand);
-			rand = (int) (Math.random()*4);
+			
 		}
 	}
-	protected void removeKey(JLabel[] keylb,int[][] array) {
+	protected void removeKey(JLabel[] keylb,int[][] array) { //화면의 키들을 다 지움
 		
-		this.remove( keylb[array[0][0]] );
-		this.remove( keylb[array[0][1]] );
-		this.remove( keylb[array[0][2]] );
-		this.remove( keylb[array[0][3]] );
-		this.repaint();
+		this.remove( keylb[0] );
+		this.remove( keylb[1] );
+		this.remove( keylb[2] );
+		this.remove( keylb[3] );
+		this.repaint(); 
 		
 	}
-	protected int keyCode (int index) {
+	protected int keyCode (int index) { //rand값에 따라 키 코드 저장해서 후에 맞는지 아닌지 비교함
 		switch(index) {
 		case left: return 37; 
 		case up: return 38; 
@@ -135,7 +139,7 @@ public class two_buger extends JPanel{
 		}
 		return 0;
 	}
-	protected ImageIcon ImageResize( int width, int height,ImageIcon img) {
+	protected ImageIcon ImageResize( int width, int height,ImageIcon img) { //이미지 크기 조정
 		Image before = img.getImage();
 		Image after = before.getScaledInstance(width, height, Image.SCALE_SMOOTH);
 		return img = new ImageIcon(after);

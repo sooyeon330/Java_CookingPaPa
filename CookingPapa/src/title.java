@@ -102,9 +102,9 @@ public class title {
 				Image img = toolkit.getImage("pic/egg_icon.png");
 				frame.setIconImage(img);
 				frame.setTitle("Cooking PaPa 쿠킹파파"); 
-				frame.setLocation(400, 200);
+				frame.setLocation(0,0);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setResizable(false);
+				frame.setResizable(true);
 				TitlePanel title = new TitlePanel(frame);		
 				title.setPreferredSize(new Dimension(1024, 720));
 				title.setLayout(null);

@@ -78,7 +78,7 @@ public class tutorial2 extends JPanel{
 			}
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				System.out.println(e.getY());
+//				System.out.println(e.getY());
 			}
 		});
 		

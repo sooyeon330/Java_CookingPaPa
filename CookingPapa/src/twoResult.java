@@ -18,7 +18,7 @@ public class twoResult extends JPanel{
 		result.setHorizontalAlignment(SwingConstants.CENTER);
 		result.setBounds(430, 400, 150, 100);
 		add(result);
-		add(new back(frame,this));
+		add(new back(frame, this, 1)); //뒤로가는거 twomenu로가게 해주세염,,	
 		
 		if(two_carrot.count1 > two_carrot.count2) {
 			result.setText("P1");

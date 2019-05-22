@@ -30,7 +30,7 @@ import javax.swing.SwingUtilities;
 			RankDAO.init(conn);
 	
 			nikname = JOptionPane.showInputDialog("닉네임을 입력해주세요");
-			System.out.println(nikname);
+	//		System.out.println(nikname);
 			
 			Rank rank= new Rank(nikname, score);
 			

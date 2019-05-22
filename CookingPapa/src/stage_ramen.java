@@ -47,7 +47,7 @@ public class stage_ramen extends JPanel{
 	static protected JButton pot= new JButton(potimg); 
 	
 	public stage_ramen(JFrame frame) {
-		System.out.println("ramen");
+//		System.out.println("ramen");
 		setLayout(null);		
 		this.frame=frame;
 		this.panel=this;
@@ -160,7 +160,7 @@ public class stage_ramen extends JPanel{
 						public void mouseReleased(MouseEvent e) {
 							if(e.getX() >= -548 && e.getX() <= -62) {
 								useorder[j++]=g;
-								System.out.println(e.getX());
+//								System.out.println(e.getX());
 //								pot.setIcon(potimg[5]);	
 								setCursor(new Cursor(Cursor.DEFAULT_CURSOR)); 
 								greenOnion.setVisible(false);
@@ -210,7 +210,7 @@ public class stage_ramen extends JPanel{
 		i=0; int count=0;
 		for(int i=0; i<order.length; i++) {
 			if(order[i] == useorder[i]) count++;
-			System.out.println(order[i]+","+useorder[i]);
+//			System.out.println(order[i]+","+useorder[i]);
 //			useorder[i]=0;
 	}
 		

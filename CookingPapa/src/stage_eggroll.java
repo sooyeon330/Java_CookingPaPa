@@ -72,7 +72,7 @@ public class stage_eggroll extends JPanel{
 			
 			@Override
 			public void mouseMoved(MouseEvent e) {
-				if (count==0) {menu.stage2_score=100; setVisible(false);frame.add(new mix_egg(frame));}
+				if (count==0) {menu.stage2_score+=100; setVisible(false);frame.add(new mix_egg(frame));}
 				
 				if(i >= ingrediantimg.length-1) {
 					setVisible(false);
@@ -123,8 +123,8 @@ public class stage_eggroll extends JPanel{
 					} else {
 						heart[--count].setIcon(broken_heartimg);
 //						count++;
-						if(count<=3) { menu.stage2_score=20;}
-						else if(count==3) {menu.stage2_score=50;}
+						if(count<=3) { menu.stage2_score+=20;}
+						else if(count==3) {menu.stage2_score+=50;}
 						
 						if(i>7) i=8; 
 						else if(i>3) i=4;

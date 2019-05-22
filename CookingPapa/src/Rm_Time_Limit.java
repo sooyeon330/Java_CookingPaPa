@@ -38,7 +38,7 @@ public class Rm_Time_Limit extends Thread{
 				if(i>-1) {					
 					label.setForeground(Color.RED);
 					label.setText(Integer.toString(i) + "초");
-					System.out.println(i);
+		//			System.out.println(i);
 					myPanel.add(label);
 					Thread.sleep(1000);
 					i--;	

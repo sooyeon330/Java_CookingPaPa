@@ -58,7 +58,7 @@ public class mix_egg extends JPanel{
 		frame.requestFocusInWindow();	
 		
 		move.setBounds(100,50,gageimg.getIconWidth(),170);
-		System.out.println("moving");
+	//	System.out.println("moving");
 		frame.add(move);
 		
 		thread = new Thread(new Runnable() {
@@ -126,7 +126,7 @@ public class mix_egg extends JPanel{
 	}
 	
 	void donecount(int score) throws InterruptedException {
-		System.out.println(menu.stage2_score);
+//		System.out.println(menu.stage2_score);
 		menu.stage2_score+=score/3;
 		
 		mixball.setIcon(mixball2_img);

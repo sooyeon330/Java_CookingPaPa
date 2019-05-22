@@ -63,7 +63,7 @@ class exam extends JPanel{
 					frame.add(new stage_chicken6(frame));
 				}
 				btn_count++;
-				System.out.println("ī��Ʈ : " + btn_count);
+//				System.out.println("ī��Ʈ : " + btn_count);
 				frame.remove(panel);
 				frame.repaint();
 				frame.revalidate();

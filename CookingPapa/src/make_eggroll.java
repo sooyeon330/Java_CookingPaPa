@@ -132,7 +132,7 @@ public class make_eggroll extends JPanel {
 			g.drawImage(resultimg.getImage(),0,0,null);
 			g.setColor(Color.BLACK);
 			g.setFont(font);
-			System.out.println(menu.stage2_score); 
+	//		System.out.println(menu.stage2_score); 
 			g.drawString(Integer.toString(menu.stage2_score/2), 500, 400);
 			add(new back(frame,this));
 			rankbtn.setBounds(500, 500, 150, 100);

@@ -10,7 +10,8 @@ import javax.swing.JPanel;
 
 class twomenu extends JPanel{
 	ImageIcon bgimage = new ImageIcon("pic/menu.png");
-	ImageIcon ramenimg = new ImageIcon("pic/Ramen.png");
+	ImageIcon carrotimg = new ImageIcon("pic/menu_carrot.png");
+	ImageIcon radishimg = new ImageIcon("pic/menu_radish.png");
 	
 	JPanel panel;
 
@@ -20,13 +21,17 @@ class twomenu extends JPanel{
 		
 		add(new back(frame, this, 1)); //뒤로가기버튼
 		
-		JButton btn_carrot = new JButton(ramenimg);
-		JButton btn_radish = new JButton(ramenimg);
-//		JButton btn_carrot = new JButton(ramenimg);
-		btn_setting(btn_carrot);btn_setting(btn_radish);
-		btn_carrot.setBounds(80,250,ramenimg.getIconWidth(),ramenimg.getIconHeight());
-		btn_radish.setBounds(420,270,ramenimg.getIconWidth(),ramenimg.getIconHeight());
-		add(btn_carrot);add(btn_radish);
+		JButton btn_carrot = new JButton(carrotimg);
+		JButton btn_radish = new JButton(radishimg);
+		JButton btn_buger = new JButton(radishimg);
+		
+		btn_setting(btn_carrot);btn_setting(btn_radish);btn_setting(btn_buger);
+		
+		btn_carrot.setBounds(100,300,carrotimg.getIconWidth(),carrotimg.getIconHeight());
+		btn_radish.setBounds(300,250,radishimg.getIconWidth(),radishimg.getIconHeight());
+		btn_buger.setBounds(650,250,radishimg.getIconWidth(),radishimg.getIconHeight());
+		
+		add(btn_carrot);add(btn_radish);add(btn_buger);
 		
 		btn_carrot.addMouseListener(new  MouseAdapter() {
 			@Override
@@ -44,6 +49,17 @@ class twomenu extends JPanel{
 			public void mouseClicked(MouseEvent e) {
 				setVisible(false);
 				frame.add(new twoExam(frame,new two_radish(frame)));
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btn_carrot.setCursor(new Cursor(Cursor.HAND_CURSOR));
+			}
+		});
+		btn_buger.addMouseListener(new  MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				setVisible(false);
+				frame.add(new two_buger(frame));
 			}
 			@Override
 			public void mouseEntered(MouseEvent e) {

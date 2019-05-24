@@ -12,6 +12,7 @@ class twomenu extends JPanel{
 	ImageIcon bgimage = new ImageIcon("pic/menu.png");
 	ImageIcon carrotimg = new ImageIcon("pic/menu_carrot.png");
 	ImageIcon radishimg = new ImageIcon("pic/menu_radish.png");
+	ImageIcon bugerimg = new ImageIcon("pic/menu_hambuger.png");
 	
 	JPanel panel;
 
@@ -23,13 +24,13 @@ class twomenu extends JPanel{
 		
 		JButton btn_carrot = new JButton(carrotimg);
 		JButton btn_radish = new JButton(radishimg);
-		JButton btn_buger = new JButton(radishimg);
+		JButton btn_buger = new JButton(bugerimg);
 		
 		btn_setting(btn_carrot);btn_setting(btn_radish);btn_setting(btn_buger);
 		
 		btn_carrot.setBounds(100,300,carrotimg.getIconWidth(),carrotimg.getIconHeight());
 		btn_radish.setBounds(300,250,radishimg.getIconWidth(),radishimg.getIconHeight());
-		btn_buger.setBounds(650,250,radishimg.getIconWidth(),radishimg.getIconHeight());
+		btn_buger.setBounds(700,200,bugerimg.getIconWidth(),bugerimg.getIconHeight());
 		
 		add(btn_carrot);add(btn_radish);add(btn_buger);
 		

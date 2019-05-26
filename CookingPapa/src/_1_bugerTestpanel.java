@@ -11,7 +11,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class _1_bugerTestpanel extends JPanel{	
-	JPanel panel;
 	ImageIcon bgimage = new ImageIcon("pic/cuttingboard3.png");
 	ImageIcon keyimg[] = { new ImageIcon("pic/key1.png"), // left
 							new ImageIcon("pic/key2.png"), // up
@@ -34,13 +33,11 @@ public class _1_bugerTestpanel extends JPanel{
 	public static final int right = 2; //방향키 키코드
 	public static final int down = 3; //방향키 키코드
 	
-	int k1=0,k2=0;//keyarray에 쓸 인덱스
+	int k1=0;//keyarray에 쓸 인덱스
 	_1_bugerTestpanel(JFrame frame) {
 		setLayout(null);
-		panel = this;
 		int rand = (int) (Math.random()*4);
 		int keyarray1[][] = new int[4][4];//0 : rand, 1 : keyCode()
-		int keyarray2[][] = new int[4][4];//0 : rand, 1 : keyCode()
 		
 		for(int i=0; i<4; i++) {
 			keyimg[i] = ImageResize(w, h, keyimg[i]);
@@ -48,12 +45,10 @@ public class _1_bugerTestpanel extends JPanel{
 		}
 		
 		JLabel keylb_1p[]= {null,null,null,null}; //up
-		JLabel keylb_2p[]= {null,null,null,null}; //up
 		
 		paintKey(keylb_1p, keyarray1, rand,x2);
-//		paintKey(keylb_2p, keyarray2, rand,x2);
 		
-		frame.requestFocusInWindow();
+		frame.requestFocus();
 		
 		Thread p1 = new Thread(new Runnable() {
 			
@@ -61,28 +56,30 @@ public class _1_bugerTestpanel extends JPanel{
 			public void run() {
 				
 				frame.addKeyListener(new KeyAdapter() {
-					
+					  
 					@Override
 					public void keyPressed(KeyEvent e) {
-						System.out.println("keypress1 "+e.getKeyCode()+" "+keyarray1[1][k1]);
-						keylb_1p[k1].setIcon(presskeyimg[keyarray1[0][k1]]); //라벨의 맞는 순서의 이미지를 가져옴
-						
-						if(e.getKeyCode() == keyarray1[1][k1++]) { //누른키와 눌러야하는 키가 같으면
-							System.out.println("맞음");
-							if(k1 > 3) { //인덱스 넘어가면
+						if(e.getKeyChar()=='w'||e.getKeyChar()=='a'||e.getKeyChar()=='s'||e.getKeyChar()=='d') {
+
+							System.out.println("keypress1 "+e.getKeyCode()+" "+keyarray1[1][k1]);
+							keylb_1p[k1].setIcon(presskeyimg[keyarray1[0][k1]]); //라벨의 맞는 순서의 이미지를 가져옴
+							
+							if(e.getKeyCode() == keyarray1[1][k1++]) { //누른키와 눌러야하는 키가 같으면
+								System.out.println("맞음");
+								if(k1 > 3) { //인덱스 넘어가면
+									k1=0; //초기화
+									removeKey(keylb_1p, keyarray1); //키 지우고
+									paintKey(keylb_1p, keyarray1, rand,x2); //새로출력
+								}
+								
+							}else { //틀리는 순간
+								System.out.println("틀림");
 								k1=0; //초기화
 								removeKey(keylb_1p, keyarray1); //키 지우고
 								paintKey(keylb_1p, keyarray1, rand,x2); //새로출력
 							}
-							
-						}else { //틀리는 순간
-							System.out.println("틀림");
-							k1=0; //초기화
-							removeKey(keylb_1p, keyarray1); //키 지우고
-							paintKey(keylb_1p, keyarray1, rand,x2); //새로출력
-						}
 						
-					
+						}
 					}
 					@Override
 					public void keyReleased(KeyEvent e) {
@@ -114,7 +111,7 @@ public class _1_bugerTestpanel extends JPanel{
 			keylb[i]= new JLabel(keyimg[rand]); //라벨 배열에 순서대로 넣어주고
 			keylb[i].setBounds(x+w*(i+1)+spacing, y, w, h); //위치지정
 			
-			add(keylb[i]); this.repaint(); //add해줌 
+			add(keylb[i]); //add해줌 
 			array[0][i] = rand; //랜덤값을 저장 -> 나중에 이미지 불러오기위해
 			array[1][i] = keyCode(rand,"2");
 			
